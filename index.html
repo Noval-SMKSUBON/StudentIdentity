@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profil Siswa XII TKJ 2025</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f0f2f5;
+        margin: 0;
+        padding: 20px;
+        background-image: url(https://i.pinimg.com/originals/37/56/22/375622cf657e4f0b9da91c14d39b4f15.jpg);
+         background-size: cover;
+         background-repeat: no-repeat;
+         background-position: center;
+      }
+
+      h1 {
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        padding: 20px;
+        background: #007bff;
+        color: #ffffff;
+      }
+      #searchInput {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 30px auto;
+        display: block;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+
+      .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .card {
+        background: white;
+        width: 360px; /* diperbesar */
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.2s ease;
+      }
+
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 20px;
+      }
+
+      .card-header h2 {
+        margin: 0;
+        font-size: 22px;
+        color: #222;
+      }
+
+      .ttl {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 16px;
+      }
+
+      .detail-row {
+        display: flex;
+        margin: 6px 0;
+      }
+
+      .detail-label {
+        width: 130px; /* lebar label ditambah agar titik dua sejajar */
+        font-weight: bold;
+        color: #333;
+        position: relative;
+        padding-right: 10px;
+      }
+
+      .detail-label::after {
+        content: ":";
+        position: absolute;
+        right: 0;
+        color: #555;
+      }
+
+      .detail-value {
+        flex-grow: 1;
+        color: #555;
+        word-break: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Data Profil Siswa xii tkj 2025</h1>
+    <h1>Smks sunan bonang 2025</h1>
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Cari berdasarkan nama, nomor induk, atau jurusan..."
+    />
+
+    <div class="cards-container" id="cardsContainer"></div>
+
+    <script>
+      const siswaData = [
+        {
+          nama: "Alvin Dwi Kurnia Taufiq",
+          nomorInduk: "1594/0377.066",
+          nisn: "0086298533",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 03 Juli 2008",
+          alamat: "Brani Wetan RT 2 RW 1",
+          jenisKelamin: "Laki-laki",
+          asalSekolah: "SMP SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Alfin%20dwi%20kurnia%20taufiq%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Asiyah",
+          nomorInduk: "1595/0378.066",
+          nisn: "0085854255",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 22 April 2009",
+          alamat: "Krucil",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Asiyah%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Dela Sintia",
+          nomorInduk: "1596/0379.066",
+          nisn: "0084071345",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 01 Agustus 2008",
+          alamat: "Kertosuko, Krucil",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Dela%20sintia%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Faiqotul Hasanah",
+          nomorInduk: "1597/0380.066",
+          nisn: "0089898869",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 25 April 2008",
+          alamat: "Maron Kidul",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Faiqotul%20hasanah%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Fiqa Farah Amlati ",
+          nomorInduk: "1598/0381.066",
+          nisn: "0079008573",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 11 September 2007",
+          alamat: "Maron Kidul",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/fiqa%20farah%20amelati%20X%20TKJ.jpeg?raw=true",
+        },
+        {
+          nama: "Halimatus Sa'diyah",
+          nomorInduk: "1599/0382.066",
+          nisn: "0073836035",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 02 Februari 2007",
+          alamat: "Dsn Kali Tengah RT14 RW 04",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Diyah.jpg?raw=true",
+        },
+        {
+          nama: "Hilwa Fauziah ",
+          nomorInduk: "1600/0383.066",
+          nisn: "0083422820",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 23 Juli 2008",
+          alamat: "Dusun Krajan RT 05 RW 01",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Hilwa%20fauziah%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Ifa Irmawati",
+          nomorInduk: "1601/0384.066",
+          nisn: "0073517735",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 03 Juli 2007",
+          alamat: "Jln. Klaseman - Maron",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Ifa%20irmawati%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Ipnu Atok Illah",
+          nomorInduk: "1707/0424.066",
+          nisn: "0075792040",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo,10 Februari 2007",
+          alamat: "Dusun Krajan",
+          jenisKelamin: "Laki-laki",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Ipnu%20atok%20illah%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Luluk",
+          nomorInduk: "1602/0385.066",
+          nisn: "0073332839",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 15 Mei 2007",
+          alamat: "Kertosuko, Krucil",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Luluk%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "M. Ali Wafa",
+          nomorInduk: "1708/0425.066",
+          nisn: "0083982824",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 03 Mei 2008",
+          alamat: "Sumber Secang - Gading",
+          jenisKelamin: "Laki-laki",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/M.%20Ali%20Wafa%20X%20TKJ.jpeg?raw=true",
+        },
+        {
+          nama: "Muhammad Faizin",
+          nomorInduk: "1605/0388.066",
+          nisn: "0081421162",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 20 Januari 2008",
+          alamat: "Wonorejo - Maron",
+          jenisKelamin: "Laki-laki",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/mhrnl16d.png?raw=true",
+        },
+        {
+          nama: "Muhammad Salim Arifin",
+          nomorInduk: "1603/0386.066",
+          nisn: "0085640841",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 31 Oktober 2008",
+          alamat: "Jln. Klaseman - Maron",
+          jenisKelamin: "Laki-laki",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Mohammad%20salim%20arifin%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Nur Intan Sari",
+          nomorInduk: "1607/0390.066",
+          nisn: "0089342114",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 23 Mei 2008",
+          alamat: "Brani Wetan",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Nur%20intan%20sari%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Novi Wulandari",
+          nomorInduk: "1606/0389.066",
+          nisn: "3059354358",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 12 Agustus 2005",
+          alamat: "Selogudik Kulon",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Novi%20wulandari%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Pebrian Budiyanto",
+          nomorInduk: "1608/0391.066",
+          nisn: "0086326939",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 28 Januari 2008",
+          alamat: "Jln. Klaseman - Maron",
+          jenisKelamin: "Laki-laki",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Pebrian%20budiyanto%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Raddin Innova",
+          nomorInduk: "1610/0393.066",
+          nisn: "0072234042",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Surabaya, 03 Mei 2007",
+          alamat: "Dka Tegal 51",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Raddin%20inova%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Siska Laili",
+          nomorInduk: "1611/0394.066",
+          nisn: "0095410013",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 17 April 2008",
+          alamat: "Gerongan",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Siska%20laili%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Tajus Sarofi",
+          nomorInduk: "1612/0395.066",
+          nisn: "0083494234",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 16 Juli 2007",
+          alamat: "Jalan Wonorejo",
+          jenisKelamin: "Laki-laki",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Tajus%20sarofi%20X%20TKj.jpeg?raw=true",
+        },
+        {
+          nama: "Warda",
+          nomorInduk: "1614/0397.066",
+          nisn: "0082964260",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 29 Oktober 2008",
+          alamat: "Dsn Krajan RT 05 RW 02",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Warda%20x%20tkj.jpeg?raw=true",
+        },
+        {
+          nama: "Yeni Safira",
+          nomorInduk: "1615/0398.066",
+          nisn: "0087649713",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 10 November 2008",
+          alamat: "Tambelang, Krucil",
+          jenisKelamin: "Perempuan",
+          asalSekolah: "SMK SUNAN BONANG",
+          foto: "https://github.com/Noval-SMKSUBON/Gambar-Siswa/blob/main/Yeni.jpg?raw=true",
+        },
+        {
+          nama: "Rohim",
+          nomorInduk: "1455/0341.066",
+          nisn: "3064573961",
+          jurusan: "TKJ",
+          tempatTanggalLahir: "Probolinggo, 05 Maret 2006",
+          alamat: "Brabe, Maron",
+          jenisKelamin: "Laki-laki",
+          asalSekolah: "SMK SUNAN BONANG",
+        },
+      ];
+
+      const container = document.getElementById("cardsContainer");
+      const searchInput = document.getElementById("searchInput");
+
+      function buatKartu(siswa) {
+        return `
+        <div class="card">
+          <img src="${siswa.foto}" alt="Foto ${siswa.nama}" />
+          <div class="card-content">
+            <div class="card-header">
+              <h2>${siswa.nama}</h2>
+              <div class="ttl">${siswa.tempatTanggalLahir}</div>
+            </div>
+            <div class="detail-row"><div class="detail-label">Nomor Induk</div><div class="detail-value">${siswa.nomorInduk}</div></div>
+            <div class="detail-row"><div class="detail-label">NISN</div><div class="detail-value">${siswa.nisn}</div></div>
+            <div class="detail-row"><div class="detail-label">Jurusan</div><div class="detail-value">${siswa.jurusan}</div></div>
+            <div class="detail-row"><div class="detail-label">Alamat</div><div class="detail-value">${siswa.alamat}</div></div>
+            <div class="detail-row"><div class="detail-label">Jenis Kelamin</div><div class="detail-value">${siswa.jenisKelamin}</div></div>
+            <div class="detail-row"><div class="detail-label">Asal Sekolah</div><div class="detail-value">${siswa.asalSekolah}</div></div>
+          </div>
+        </div>
+      `;
+      }
+
+      function tampilkanData(data) {
+        container.innerHTML = data.map(buatKartu).join("");
+      }
+
+      function filterData(keyword) {
+        keyword = keyword.toLowerCase();
+        return siswaData.filter(
+          (s) =>
+            s.nama.toLowerCase().includes(keyword) ||
+            s.nomorInduk.toLowerCase().includes(keyword) ||
+            s.jurusan.toLowerCase().includes(keyword)
+        );
+      }
+
+      searchInput.addEventListener("input", () => {
+        const hasilFilter = filterData(searchInput.value);
+        tampilkanData(hasilFilter);
+      });
+
+      tampilkanData(siswaData);
+    </script>
+  </body>
+</html>
